@@ -1,12 +1,28 @@
-# Retail Inventory & Supply Chain Analytics (SQL + Python + Power BI)
+# 📦 Retail Inventory & Supply Chain Analytics
 
-An end-to-end supply chain analytics project for a multi-region retail
-chain: why are stores running out of stock, which suppliers are actually
-causing it, how much is spoilage costing the business, and can a simple
-forecast improve reordering? Built using **SQL**, **Python (pandas)**, and
-designed to plug directly into **Power BI** for an interactive dashboard.
+[![Python](https://img.shields.io/badge/Python-3.9%2B-blue?logo=python&logoColor=white)](https://www.python.org/)
+[![pandas](https://img.shields.io/badge/pandas-Data%20Analysis-150458?logo=pandas&logoColor=white)](https://pandas.pydata.org/)
+[![SQL](https://img.shields.io/badge/SQL-Analytics%20%26%20Schema-orange?logo=sqlite&logoColor=white)](sql/schema_and_queries.sql)
+[![Power BI](https://img.shields.io/badge/Power%20BI-Dashboard-F2C811?logo=powerbi&logoColor=black)](powerbi/POWER_BI_GUIDE.md)
 
-## Problem Statement
+---
+
+## 📌 About the Project
+
+**Retail Inventory & Supply Chain Analytics** is an end-to-end data analytics project built for a multi-region retail enterprise operating across 16 stores, 30 products, and 10 vendor suppliers over 52 weeks of operational inventory data.
+
+In retail operations, stockouts directly erode top-line revenue, while excessive inventory drives up holding costs and perishable spoilage. This project provides a full diagnostic of the supply chain ecosystem: identifying root causes behind stockouts, evaluating supplier SLA performance, quantifying spoilage waste, and evaluating whether lightweight demand forecasting can optimize reorder timing.
+
+### 🎯 Key Objectives
+- **Stockout Root Cause Analysis**: Determine whether stockouts stem from customer demand surges, supplier lead times, delivery unreliability, or misconfigured reorder points.
+- **Supplier Performance & SLA Evaluation**: Quantify on-time delivery rates, lead-time variances, and uncover which suppliers introduce the greatest risk.
+- **Spoilage & Holding Cost Reduction**: Map out where inventory spoilage is concentrated and recommend targeted, category-specific ordering policies.
+- **Demand Forecasting Layer**: Test a 4-week moving average statistical forecast to assess feasibility of automated replenishment triggers.
+- **Business Intelligence Reporting**: Structure flat & star-schema datasets and DAX measures for an interactive Power BI executive dashboard.
+
+---
+
+## 🚨 Problem Statement
 
 The chain has stockouts eating into sales and spoilage eating into margin,
 but no clear view of *why* — is it demand spikes, slow suppliers, unreliable
@@ -63,7 +79,7 @@ regenerates all charts in `images/`, and exports the Power BI-ready dataset.
 
 To run the SQL queries, load the cleaned CSVs into SQL:
 ```bash
-SQL3 data/supply_chain.db
+sqlite3 data/supply_chain.db
 .mode csv
 .import data/inventory_ledger_clean.csv inventory_ledger
 .import data/stores.csv stores
