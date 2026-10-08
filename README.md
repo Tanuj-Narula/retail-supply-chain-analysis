@@ -7,13 +7,14 @@
 
 ---
 
-## 📌 About the Project
+## About the Project
 
 **Retail Inventory & Supply Chain Analytics** is an end-to-end data analytics project built for a multi-region retail enterprise operating across 16 stores, 30 products, and 10 vendor suppliers over 52 weeks of operational inventory data.
 
 In retail operations, stockouts directly erode top-line revenue, while excessive inventory drives up holding costs and perishable spoilage. This project provides a full diagnostic of the supply chain ecosystem: identifying root causes behind stockouts, evaluating supplier SLA performance, quantifying spoilage waste, and evaluating whether lightweight demand forecasting can optimize reorder timing.
 
-### 🎯 Key Objectives
+### Key Objectives
+
 - **Stockout Root Cause Analysis**: Determine whether stockouts stem from customer demand surges, supplier lead times, delivery unreliability, or misconfigured reorder points.
 - **Supplier Performance & SLA Evaluation**: Quantify on-time delivery rates, lead-time variances, and uncover which suppliers introduce the greatest risk.
 - **Spoilage & Holding Cost Reduction**: Map out where inventory spoilage is concentrated and recommend targeted, category-specific ordering policies.
@@ -22,10 +23,10 @@ In retail operations, stockouts directly erode top-line revenue, while excessive
 
 ---
 
-## 🚨 Problem Statement
+## Problem Statement
 
 The chain has stockouts eating into sales and spoilage eating into margin,
-but no clear view of *why* — is it demand spikes, slow suppliers, unreliable
+but no clear view of _why_ — is it demand spikes, slow suppliers, unreliable
 suppliers, or badly-set reorder points? This project traces stockouts and
 spoilage back to their actual drivers across 16 stores, 30 products, and
 10 suppliers over a full year of weekly inventory data.
@@ -78,6 +79,7 @@ This cleans the data, prints KPI and root-cause analysis to the console,
 regenerates all charts in `images/`, and exports the Power BI-ready dataset.
 
 To run the SQL queries, load the cleaned CSVs into SQL:
+
 ```bash
 sqlite3 data/supply_chain.db
 .mode csv
@@ -93,7 +95,7 @@ To build the dashboard, follow `powerbi/POWER_BI_GUIDE.md`.
 ## Data Cleaning Steps
 
 - Removed exact duplicate rows
-- Standardized inconsistent category naming (`packaged foods` / ` Packaged Foods ` → `Packaged Foods`)
+- Standardized inconsistent category naming (`packaged foods` / `Packaged Foods` → `Packaged Foods`)
 - Filled missing `units_received` values with 0 (no delivery recorded that week)
 
 ## Key Findings
@@ -101,7 +103,7 @@ To build the dashboard, follow `powerbi/POWER_BI_GUIDE.md`.
 - **Overall fill rate: 98.2%** (1.8% stockout rate) — solid on average, but
   masks real gaps by category and supplier
 - **Supplier reliability drives stockouts more than lead time does**: lead
-  time actually correlates *negatively* with stockout rate (-0.45) because
+  time actually correlates _negatively_ with stockout rate (-0.45) because
   reorder points already compensate for slow suppliers — but reliability
   correlates as expected (-0.44), meaning **unreliable suppliers, not slow
   ones, are the real risk**
@@ -115,18 +117,23 @@ To build the dashboard, follow `powerbi/POWER_BI_GUIDE.md`.
   timing without needing a complex model
 
 ### Stockout Rate by Category
+
 ![Stockout Rate by Category](images/stockout_rate_by_category.png)
 
 ### Stockout Rate by Region
+
 ![Stockout Rate by Region](images/stockout_rate_by_region.png)
 
 ### Inventory Turnover by Category
+
 ![Inventory Turnover](images/inventory_turnover_by_category.png)
 
 ### Supplier Lead Time vs. Stockout Rate
+
 ![Supplier Lead Time vs Stockouts](images/supplier_lead_time_vs_stockouts.png)
 
 ### Spoilage Cost by Category
+
 ![Spoilage Cost by Category](images/spoilage_cost_by_category.png)
 
 ## Demand Forecast vs. Actual
@@ -163,4 +170,5 @@ Scorecard, Inventory Health), and an optional proper star-schema model.
 - Publish the Power BI dashboard to the Power BI Service and link it here
 
 ---
-*Note: Dataset is synthetically generated for portfolio/demonstration purposes and does not represent a real business.*
+
+_Note: Dataset is synthetically generated for portfolio/demonstration purposes and does not represent a real business._
